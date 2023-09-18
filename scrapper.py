@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 
 
+#전달받은 url의 html 소스를 모두 가져와서
+#그 중 링크들을 모두 가져온 후 마지막 페이지 return
 def get_last_page(url):
   result = requests.get(url)
   soup = BeautifulSoup(result.text, "html.parser")

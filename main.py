@@ -16,11 +16,15 @@ def home():
 
 @app.route("/report")
 def report():
+  #사용자가 검색한 값 (파라미터), request에 담겨서 전달됨
   word = request.args.get('word')
+
   #사용자가 적은값 가져오기
   if word:
     word = word.lower()
     existingJobs = db.get(word)
+
+    # db에 word가 존재한다면
     if existingJobs:
       jobs = existingJobs
     else:
